@@ -1,0 +1,105 @@
+# To execute this docker-compose yml file use `docker-compose -f <file_name> up`
+# Add the `-d` flag at the end for detached execution
+version: "3"
+services:
+  selenium-hub:
+    image: selenium/hub:3.141.59-20200409
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+    environment:
+      - GRID_BROWSER_TIMEOUT=60
+
+  chrome:
+    image: selenium/node-chrome-debug:3.141.59-20200409
+    container_name: chrome
+    ports:
+      - "5900:5900"
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - NODE_MAX_INSTANCES=3
+
+  firefox:
+    image: selenium/node-firefox-debug:3.141.59-20200409
+    container_name: firefox
+    ports:
+      - "5901:5900"
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - NODE_MAX_INSTANCES=3
+
+  opera:
+    image: selenium/node-opera-debug:3.141.59-20200409
+    container_name: opera
+    ports:
+      - "5902:5900"
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - NODE_MAX_INSTANCES=3
+
+  test-executor:
+    tty: true
+    depends_on:
+      - selenium-hub
+    build:
+      dockerfile: Dockerfile.dev
+      context: ../ta-project-module1
+    volumes:
+      - ../ta-project-module1:/app
+
+  appium-server:
+    image: appium/appium
+    container_name: appium-server
+    depends_on:
+      - selenium-hub
+    privileged: true
+    ports:
+      - "4723:4723"
+    #    volumes:
+    #      - /dev/bus/usb:/dev/bus/usb
+    #      - ~/.android:/root/.android
+    environment:
+      - ANDROID_ADB_SERVER_ADDRESS=host.docker.internal
+      - ANDROID_ADB_SERVER_PORT=5037
+      - APPIUM_HOST=appium-server
+      - APPIUM_PORT=4723
+      - CONNECT_TO_GRID=true
+      - SELENIUM_HOST=selenium-hub
+      - SELENIUM_PORT=4444
+#      - REMOTE_ADB=true
+#      - ANDROID_DEVICES=127.0.0.1:5554
+
+#   galaxy_s8_8.1:
+#     image: budtmo/docker-android-x86-8.1
+#     privileged: true
+#     # Increase scale number if needed
+#     depends_on:
+#       - selenium-hub
+#     ports:
+#       - "6080:6080"
+#     # Change path of apk that you want to test. I use sample_apk that I provide in folder "example"
+#     volumes:
+#       - ./example/sample_apk:/root/tmp/sample_apk
+#       - ./galaxy_s8_8.1:/tmp/video
+#     environment:
+#       - DEVICE=Samsung Galaxy S8
+#       - CONNECT_TO_GRID=true
+#       - APPIUM=true
+#       - SELENIUM_HOST=selenium-hub
+#       - MOBILE_WEB_TEST=true
+#       - AUTO_RECORD=true

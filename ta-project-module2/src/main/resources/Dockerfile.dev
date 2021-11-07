@@ -1,0 +1,6 @@
+FROM maven:3.6.3-jdk-11
+WORKDIR "/app"
+COPY ./src/ ./src
+COPY ./pom.xml ./ 
+RUN mvn -B -f ./pom.xml -s /usr/share/maven/ref/settings-docker.xml dependency:resolve
+CMD ["tail", "-f", "/dev/null" ]

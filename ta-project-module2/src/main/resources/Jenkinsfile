@@ -1,0 +1,60 @@
+pipeline {
+    agent any
+    tools {
+        maven 'maven'
+        jdk 'jdk-1.8.0_172'
+    }
+     parameters {
+        //string(name: 'APP_VERSION', defaultValue: '1.0.0', description: 'select application version for deployment')
+        choice(name: 'APP_VERSION', choices: ['1.0.0', '1.1.0', '2.0.1'], description: 'select application version for deployment')
+     }
+
+    stages {
+        stage('Deploy Application') {
+            steps {
+               echo 'Deploying.... ${APP_VERSION}'
+            }
+        }
+
+        stage('Load Test Data') {
+            steps {
+               echo 'Loading test data on the deployed environment'
+            }
+        }
+
+        stage('Run Unit Tests') {
+            steps {
+               script {
+                 bat "mvn clean test -U -pl unit-test-demo-project/junit-demo"
+               }
+            }
+        }
+
+        stage('Run Backend Tests') {
+            steps {
+               script {
+                 bat "mvn integration-test -Pacceptance-tests -pl ta-project-module2 -Dcucumber.filter.tags=\"@Api\" failsafe:verify"
+               }
+            }
+        }
+
+        stage('Run Frontend Tests') {
+              steps {
+                 script {
+                   bat "mvn integration-test -Pacceptance-tests -pl ta-project-module2 -Dcucumber.filter.tags=\"@UI\" failsafe:verify"
+                 }
+              }
+        }
+
+        stage('Clean up Test Data') {
+            steps {
+               echo 'Cleaning up test data on the deployed environment'
+            }
+        }
+    }
+//     post {
+//         always {
+//             step([$class: 'Publisher', reportFilenamePattern: 'target/surefire-reports/testng-results.xml'])
+//           }
+//        }
+}

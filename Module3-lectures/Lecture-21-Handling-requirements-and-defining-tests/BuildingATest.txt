@@ -1,0 +1,43 @@
+What type of a test can answer this?
+- Comprehensive Benchmarks
+
+Solidify the system:
+    How many nodes for differeent parts of the system?
+    What will be the sizes of the nodes?
+    What type of network? 1 GBPS or 10 GBPS
+    How much data is already fed to the system?
+        - File system
+        - Databases
+    Tunings in place.. different memory settings.
+
+Load model
+    - Adaptive load with 10000 request overhead all the time
+    - 30 minutes
+    - What will be ratio of different requests that will be sent?
+
+Tool
+    - Custom solution?
+    - Generic tools?
+    - Scalable (e.g. Locust, Gatling, JMeter) scale 
+
+Monitoring:
+    - Zabbix, NMON, Elastic search
+    - Monitor everything from the system to the test executors
+
+Send a single request
+    - All the checks
+        - Response code, Check in the database, check on file system, more details in the Response
+
+Sending more request and use the load model
+    - Dont always go for averages build time series, look for spikes
+    - Look for trends in different parts of the system
+
+Build a process to store and share the results
+    - Host an elastic search server
+    - Feed your data (hopefully automatically)
+    - For the sake of saving history
+
+Put the test in regular execution
+    - Jenkins
+    - Trigger some alerts from your monitoring solution
+

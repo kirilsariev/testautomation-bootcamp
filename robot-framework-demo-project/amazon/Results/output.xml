@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.7.9 on win32)" generated="20210330 09:10:27.644" rpa="false">
+<suite id="s1" name="BuiltInExamples" source="C:\Workspace\LearningProjects\robot-framework\amazon\Examples\BuiltInExamples.robot">
+<test id="s1-t1" name="Logging examples">
+<kw name="Log Many" library="BuiltIn">
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<arguments>
+<arg>one</arg>
+<arg>two</arg>
+<arg>three</arg>
+</arguments>
+<msg timestamp="20210330 09:10:27.682" level="INFO">one</msg>
+<msg timestamp="20210330 09:10:27.682" level="INFO">two</msg>
+<msg timestamp="20210330 09:10:27.682" level="INFO">three</msg>
+<status status="PASS" starttime="20210330 09:10:27.682" endtime="20210330 09:10:27.683"></status>
+</kw>
+<kw name="Log Variables" library="BuiltIn">
+<doc>Logs all variables in the current scope with given log level.</doc>
+<msg timestamp="20210330 09:10:27.683" level="INFO">${/} = \</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${:} = ;</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${\n} = 
+</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${DEBUG_FILE} = NONE</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${EXECDIR} = C:\Workspace\LearningProjects\robot-framework\amazon</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${False} = False</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${LOG_FILE} = C:\Workspace\LearningProjects\robot-framework\amazon\Results\log.html</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${LOG_LEVEL} = INFO</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${None} = None</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${null} = None</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${OUTPUT_DIR} = C:\Workspace\LearningProjects\robot-framework\amazon\Results</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${OUTPUT_FILE} = C:\Workspace\LearningProjects\robot-framework\amazon\Results\output.xml</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${PREV_TEST_MESSAGE} = </msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${PREV_TEST_NAME} = </msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${PREV_TEST_STATUS} = </msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${REPORT_FILE} = C:\Workspace\LearningProjects\robot-framework\amazon\Results\report.html</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${SPACE} =  </msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${SUITE_DOCUMENTATION} = </msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">&amp;{SUITE_METADATA} = { }</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${SUITE_NAME} = BuiltInExamples</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${SUITE_SOURCE} = C:\Workspace\LearningProjects\robot-framework\amazon\Examples\BuiltInExamples.robot</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${TEMPDIR} = C:\Users\ROHIT~1.SIN\AppData\Local\Temp</msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${TEST_DOCUMENTATION} = </msg>
+<msg timestamp="20210330 09:10:27.684" level="INFO">${TEST_NAME} = Logging examples</msg>
+<msg timestamp="20210330 09:10:27.685" level="INFO">@{TEST_TAGS} = [ ]</msg>
+<msg timestamp="20210330 09:10:27.685" level="INFO">${True} = True</msg>
+<status status="PASS" starttime="20210330 09:10:27.683" endtime="20210330 09:10:27.685"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>This will lot to console and testfile both!</arg>
+</arguments>
+<status status="PASS" starttime="20210330 09:10:27.685" endtime="20210330 09:10:27.685"></status>
+</kw>
+<status status="PASS" starttime="20210330 09:10:27.681" endtime="20210330 09:10:27.686" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Repeat keyword example">
+<kw name="Repeat Keyword" library="BuiltIn">
+<doc>Executes the specified keyword multiple times.</doc>
+<arguments>
+<arg>5 Times</arg>
+<arg>Print a message</arg>
+</arguments>
+<msg timestamp="20210330 09:10:27.688" level="INFO">Repeating keyword, round 1/5.</msg>
+<kw name="Print a message">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>It is a lovely morning!</arg>
+</arguments>
+<msg timestamp="20210330 09:10:27.689" level="INFO">It is a lovely morning!</msg>
+<status status="PASS" starttime="20210330 09:10:27.688" endtime="20210330 09:10:27.689"></status>
+</kw>
+<status status="PASS" starttime="20210330 09:10:27.688" endtime="20210330 09:10:27.689"></status>
+</kw>
+<msg timestamp="20210330 09:10:27.689" level="INFO">Repeating keyword, round 2/5.</msg>
+<kw name="Print a message">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>It is a lovely morning!</arg>
+</arguments>
+<msg timestamp="20210330 09:10:27.689" level="INFO">It is a lovely morning!</msg>
+<status status="PASS" starttime="20210330 09:10:27.689" endtime="20210330 09:10:27.690"></status>
+</kw>
+<status status="PASS" starttime="20210330 09:10:27.689" endtime="20210330 09:10:27.690"></status>
+</kw>
+<msg timestamp="20210330 09:10:27.690" level="INFO">Repeating keyword, round 3/5.</msg>
+<kw name="Print a message">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>It is a lovely morning!</arg>
+</arguments>
+<msg timestamp="20210330 09:10:27.690" level="INFO">It is a lovely morning!</msg>
+<status status="PASS" starttime="20210330 09:10:27.690" endtime="20210330 09:10:27.691"></status>
+</kw>
+<status status="PASS" starttime="20210330 09:10:27.690" endtime="20210330 09:10:27.691"></status>
+</kw>
+<msg timestamp="20210330 09:10:27.691" level="INFO">Repeating keyword, round 4/5.</msg>
+<kw name="Print a message">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>It is a lovely morning!</arg>
+</arguments>
+<msg timestamp="20210330 09:10:27.691" level="INFO">It is a lovely morning!</msg>
+<status status="PASS" starttime="20210330 09:10:27.691" endtime="20210330 09:10:27.691"></status>
+</kw>
+<status status="PASS" starttime="20210330 09:10:27.691" endtime="20210330 09:10:27.692"></status>
+</kw>
+<msg timestamp="20210330 09:10:27.692" level="INFO">Repeating keyword, round 5/5.</msg>
+<kw name="Print a message">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>It is a lovely morning!</arg>
+</arguments>
+<msg timestamp="20210330 09:10:27.692" level="INFO">It is a lovely morning!</msg>
+<status status="PASS" starttime="20210330 09:10:27.692" endtime="20210330 09:10:27.692"></status>
+</kw>
+<status status="PASS" starttime="20210330 09:10:27.692" endtime="20210330 09:10:27.692"></status>
+</kw>
+<status status="PASS" starttime="20210330 09:10:27.688" endtime="20210330 09:10:27.692"></status>
+</kw>
+<status status="PASS" starttime="20210330 09:10:27.687" endtime="20210330 09:10:27.693" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20210330 09:10:27.648" endtime="20210330 09:10:27.694"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" id="s1" name="BuiltInExamples">BuiltInExamples</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
