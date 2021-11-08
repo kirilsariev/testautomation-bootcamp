@@ -1,8 +1,8 @@
 # Test Automation Bootcamp
 
-| Module 01 | Building Selenium Test Automation Framework |
+| Lecture | Video |
 | --- | --- |
-| **Lecture** | **Video** |
+| **Module 01** | **Building Selenium Test Automation Framework** |
 |1. OOP Concepts | https://youtu.be/fNQQk9wI1y8 |
 |2. Exception Handling | https://youtu.be/Sj__mhZLlgs |
 |3. Design Patterns and Principles in Test Automation | https://youtu.be/VXQ0mA99ZRs |
